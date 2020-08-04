@@ -87,7 +87,7 @@ public class BlogController {
         return "redirect:/profile";
     }
 
-    @PostMapping("/deleteBlog/{id}")
+    @GetMapping("/deleteBlog/{id}")
     public String deleteBlog(@PathVariable("id") Long blogId) {
 
         String email = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
