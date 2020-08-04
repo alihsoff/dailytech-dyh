@@ -28,7 +28,7 @@ import java.nio.file.StandardCopyOption;
 @Controller
 public class BlogController {
 
-    private static final String UPLOAD_DIR =  "/images/";
+    private static final String UPLOAD_DIR =  System.getProperty("user.dir")+"/images/";
 
     private BlogService blogService;
 
