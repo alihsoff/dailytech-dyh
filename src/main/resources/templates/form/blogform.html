@@ -1,0 +1,42 @@
+<div  xmlns:th="http://www.thymeleaf.org"
+      th:fragment="blogform">
+<div class="row">
+    <div class="col-md-12">
+        <div class="md-form mb-0">
+            <input type="text" id="subject" th:field="*{title}" class="form-control"
+                   placeholder="Bloq başlığını yazın.">
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+
+
+    <div class="col-md-12">
+
+        <div class="md-form">
+                                        <textarea type="text" id="message" placeholder="Bloqunuzu yazın." th:field="*{description}"
+                                                  rows="2" class="form-control md-textarea"></textarea>
+        </div>
+
+    </div>
+</div>
+<div class="row">
+
+
+    <div class="col-md-12">
+
+        <div class="md-form">
+            <label for="img">Şəkli seçin:</label>
+            <input type="file" id="img" name="file" value="Seçin.">
+        </div>
+
+    </div>
+</div>
+
+<div class="text-center text-md-left">
+    <button href="#" type="submit" class="button">Göndər</button>
+</div>
+</div>

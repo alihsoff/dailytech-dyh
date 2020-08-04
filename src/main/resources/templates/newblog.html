@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Əlaqə</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:700italic,400,300,700' rel='stylesheet'
+          type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-panels.min.js"></script>
+    <script src="js/init.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="css/skel-noscript.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/style-desktop.css" />
+    </noscript>
+</head>
+
+<body class="right-sidebar">
+
+<div id="header">
+    <div class="container">
+
+
+        <div id="logo">
+            <h1><a href="/">Daily Tech</a></h1>
+        </div>
+
+        <nav id="nav">
+            <ul>
+                <li><a href="/">Ana Səhifə</a></li>
+                <li><a href="/about">Haqqımızda</a></li>
+                <li class="active"><a href="/contact">Əlaqə</a></li>
+                <!--                <li>-->
+                <!--                    <form class="form-inline my-2 my-lg-0">-->
+                <!--                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+                <!--                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+                <!--                    </form>-->
+                <!--                </li>-->
+                <li sec:authorize="!isAuthenticated()">
+                    <a style="color: #6f2cff;" href="/register">Register</a>
+                </li>
+                <li sec:authorize="!isAuthenticated()">
+                    <a style="color: #6f2cff" href="/login">Daxil ol</a>
+                </li>
+                <li>
+                    &nbsp;
+                    &nbsp;
+                </li>
+
+                <li sec:authorize="isAuthenticated()">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success"><i class="fa fa-user"
+                                                                         aria-hidden="true"></i><a href="/profile">Profil</a>
+                        </button>
+                        <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <img src="css/images/img01.jpg" alt="image" style="border-radius: 30px;height: 60px;width: 60px;margin-left: 20px;">
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/profile">Bloqlarım</a>
+                            <a class="dropdown-item" href="/addBlog">Yeni Bloq</a>
+                            <div class="dropdown-divider"></div>
+                            <!--                            <a class="dropdown-item" href="#">Çıxış etmək</a>-->
+                            <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post"
+                                  sec:authorize="isAuthenticated()">
+                                <input type="hidden"/>
+                                <button type="submit" class="btn btn-outline-danger dropdown-item">Hesabdan çıx</button>
+                            </form>
+                            <a class="dropdown-item"></a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+</div>
+    </div>
+    <div id="banner-contact">
+        <div class="container">
+        </div>
+    </div>
+
+    <div id="page">
+
+        <div id="main" class="container">
+
+            <section class="mb-4">
+                <p class="text-center w-responsive mx-auto mb-5 questiontext">Bloqunuzu burada paylaşın.</p>
+
+                <div class="row">
+
+                    <div class="col-md-9 mb-md-0 mb-5">
+                        <form id="contact-form" method="post" th:action="@{/addBlog}" th:object="${blog}" enctype="multipart/form-data">
+                        <div class="row">
+
+                        </div>
+                            <div th:replace="form/blogform :: blogform"></div>
+
+                        </form>
+                        <br>
+                        <br>
+
+                        <div class="status"></div>
+                    </div>
+
+                    <div class="col-md-3 text-center">
+                        <ul class="list-unstyled mb-0">
+                            <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                                <p>Baku, AZ1000, Azerbaijan</p>
+                            </li>
+
+                            <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                                <p>+994 50 339 93 13</p>
+                            </li>
+
+                            <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                                <p>daily.tech.dyh@gmail.com</p>
+                            </li>
+                        </ul>
+                    </div>
+
+
+
+
+            </section>
+
+        </div>
+    </div>
+
+    </div>
+    
+    <div id="copyright" class="container">
+        2020 © All rights reserved.Site by PromeTech
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/2377244807.js"></script>
+    <script src="../../../../../../Desktop/frontend-master/js/bootstrap.js"></script>
+    <script src="../../../../../../Desktop/frontend-master/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
