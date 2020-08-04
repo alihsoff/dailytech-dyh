@@ -87,7 +87,7 @@
 							</h2>
 						</header>
 						<p class="subtitle" th:text="${blog.user.name}">In posuere eleifend odio. Quisque semper augue mattis maecenas ligula.</p>
-						<p><a href="more.html"><img th:src="@{/images/{image}(image=${blog.imgPath})}" width="160px" height="160px" alt=""></a></p>
+						<p><a href="more.html"><img th:src="@{https://alihuseynov-state-storage.s3.us-east-2.amazonaws.com/{image}(image=${blog.imgPath})}" width="160px" height="160px" alt=""></a></p>
 						<a th:href="@{/editBlog/{id}(id=${blog.id})}" class="button btn">Düzəliş et</a>
 						<a th:href="@{/deleteBlog/{id}(id=${blog.id})}" style="color: #fff;
 						background-color: #d9534f;

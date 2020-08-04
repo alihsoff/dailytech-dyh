@@ -1,6 +1,7 @@
 package me.eltacshikhsaidov.dailytech.controllers;
 
 import me.eltacshikhsaidov.dailytech.entities.Blog;
+import me.eltacshikhsaidov.dailytech.services.AmazonS3ClientServiceImpl;
 import me.eltacshikhsaidov.dailytech.services.BlogService;
 import me.eltacshikhsaidov.dailytech.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +29,19 @@ import java.nio.file.StandardCopyOption;
 @Controller
 public class BlogController {
 
-    private static final String UPLOAD_DIR =  System.getProperty("user.dir")+"/images/";
+    //private static final String UPLOAD_DIR =  System.getProperty("user.dir")+"/images/";
+
+    private AmazonS3ClientServiceImpl amazonS3ClientService;
+
 
     private BlogService blogService;
 
     private UserService userService;
+
+    @Autowired
+    public void setAmazonS3ClientService(AmazonS3ClientServiceImpl amazonS3ClientService) {
+        this.amazonS3ClientService = amazonS3ClientService;
+    }
 
     @Autowired
     public void setBlogService(BlogService blogService) {
@@ -79,12 +88,16 @@ public class BlogController {
     }
 
     @PostMapping("/deleteBlog/{id}")
-    public String editBlog(@PathVariable("id") Long blogId) {
+    public String deleteBlog(@PathVariable("id") Long blogId) {
 
         String email = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
         Blog blog = blogService.getBlogById(blogId);
-        if(email.equals(blog.getUser().getEmail()))
+        if(email.equals(blog.getUser().getEmail())) {
             blogService.deleteBlogById(blogId);
+            if(blog.getImgPath()!=null){
+                amazonS3ClientService.deleteFileFromS3Bucket(blog.getImgPath());
+            }
+        }
 
         return "redirect:/profile";
     }
@@ -97,17 +110,13 @@ public class BlogController {
         }
 
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+        String email = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
 
-        try {
-            Path path = Paths.get(UPLOAD_DIR + fileName);
-            Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
-            String email = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
-            System.out.println(path);
+        if(fileName!=null) {
+            amazonS3ClientService.uploadFileToS3Bucket(file, true);
             blog.setImgPath(fileName);
-            blogService.addBlog(blog, userService.findOne(email));
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+            blogService.addBlog(blog, userService.findOne(email));
 
         return "redirect:/profile";
     }

@@ -96,7 +96,7 @@
                         <h5>date: <a th:text="${selectedBlog.date}"></a></h5>
                         <h5>by: <a th:text="${selectedBlog.user.name}" href="#"></a></h5>
                     </header>
-                    <p><img th:src="@{/images/{image}(image=${selectedBlog.imgPath})}" alt="Pineapple"
+                    <p><img th:src="@{https://alihuseynov-state-storage.s3.us-east-2.amazonaws.com/{image}(image=${selectedBlog.imgPath})}" alt="Pineapple"
                             style="width:250px;height:250px;margin-right: 15px;float: left;">
                     <p th:text="${selectedBlog.description}"></p>
                 </section>

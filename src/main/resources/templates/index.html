@@ -125,7 +125,7 @@
                         <h6>by: <a th:text="${blog.user.name}" href="#"></a></h6>
                     </header>
                     <p class="subtitle" th:text="${blog.title}"></p>
-                                        <p><a href="#"><img th:src="@{/images/{image}(image=${blog.imgPath})}" width="160px" alt=""></a></p>
+                                        <p><a href="#"><img th:src="@{https://alihuseynov-state-storage.s3.us-east-2.amazonaws.com/{image}(image=${blog.imgPath})}" width="160px" alt=""></a></p>
                     <!--                    <a href="#" class="button">Ətraflı</a>-->
                     <a th:href="@{'/more/' + ${blog.id}}" class="button">Ətraflı</a>
                 </section>
