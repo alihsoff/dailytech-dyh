@@ -72,9 +72,9 @@
 	<div id="page">
 
 		<div id="marketing" class="container">
-		<h1 th:text="|Welcome ${blogs.get(0).getUser().getName()}|">
+			<h1 th:text="|Welcome ${user.getName()}|">
 
-		</h1>
+			</h1>
 			<div class="row">
 				<div class="3u" th:each="blog: ${blogs}" style="margin: 2% 2% 2% 2%;">
 					<section>
