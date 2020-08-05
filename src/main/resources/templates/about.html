@@ -58,16 +58,20 @@
                 <li sec:authorize="isAuthenticated()">
                     <div class="btn-group">
                         <button type="button" class="btn btn-success"><i class="fa fa-user"
-                                                                         aria-hidden="true"></i><a href="">Profil</a>
+                                                                         aria-hidden="true"></i><a href="/profile">Profil</a>
                         </button>
                         <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Bloqlarım</a>
+                            <img alt="image" src="css/images/img01.jpg"
+                                 style="border-radius: 30px;height: 60px;width: 60px;margin-left: 20px;">
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/profile">Bloqlarım</a>
                             <a class="dropdown-item" href="/addBlog">Yeni Bloq</a>
                             <div class="dropdown-divider"></div>
+                            <!--                            <a class="dropdown-item" href="#">Çıxış etmək</a>-->
                             <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post"
                                   sec:authorize="isAuthenticated()">
                                 <input type="hidden"/>
