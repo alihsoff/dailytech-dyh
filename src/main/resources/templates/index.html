@@ -42,8 +42,8 @@
                 <li>
                     <form class="form-inline my-2 my-lg-0" action="/">
                         <input class="form-control mr-sm-2" name="title" placeholder="Search blog" type="search"
-                               aria-label="Axtar">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Axtar</button>
+                               aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </li>
                 <li sec:authorize="!isAuthenticated()">
@@ -111,7 +111,7 @@
 <div id="page">
 
     <div style="margin-left: 2%;" th:if="${blogs.size() == 0}">
-        <h1>Axtarışa uyğun nəticə(lər) tapılmadı</h1>
+        <h1>Searchışa uyğun nəticə(lər) tapılmadı</h1>
     </div>
 
     <div id="marketing" class="container">
