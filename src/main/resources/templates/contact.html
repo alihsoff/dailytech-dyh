@@ -2,7 +2,7 @@
 <html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Əlaqə</title>
+    <title>Contact</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -38,9 +38,9 @@
 
         <nav id="nav">
             <ul>
-                <li><a href="/">Ana Səhifə</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="/about">Haqqımızda</a></li>
-                <li class="active"><a href="/contact">Əlaqə</a></li>
+                <li class="active"><a href="/contact">Contact</a></li>
 <!--                <li>-->
 <!--                    <form class="form-inline my-2 my-lg-0">-->
 <!--                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
@@ -51,7 +51,7 @@
                     <a style="color: #6f2cff;" href="/register">Hesabı yarat</a>
                 </li>
                 <li sec:authorize="!isAuthenticated()">
-                    <a style="color: #6f2cff" href="/login">Daxil ol</a>
+                    <a href="/login" style="color: #6f2cff">Login</a>
                 </li>
                 <li>
                     &nbsp;
@@ -68,13 +68,13 @@
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Bloqlarım</a>
-                            <a class="dropdown-item" href="/addBlog">Yeni Bloq</a>
+                            <a class="dropdown-item" href="#">My blogs</a>
+                            <a class="dropdown-item" href="/addBlog">New blog</a>
                             <div class="dropdown-divider"></div>
                             <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post"
                                   sec:authorize="isAuthenticated()">
                                 <input type="hidden"/>
-                                <button type="submit" class="btn btn-outline-danger dropdown-item">Hesabdan çıx</button>
+                                <button class="btn btn-outline-danger dropdown-item" type="submit">Log out</button>
                             </form>
                             <a class="dropdown-item"></a>
                         </div>
@@ -97,7 +97,8 @@
         <section class="mb-4">
             <div class="alert alert-primary" role="alert" th:text="${success}" th:if="${success}"></div>
 
-            <p class="text-center w-responsive mx-auto mb-5 questiontext">Sualınız var? Elə isə bizimlə əlaqə saxlayın.</p>
+            <p class="text-center w-responsive mx-auto mb-5 questiontext">Sualınız var? Elə isə bizimlə Contact
+                saxlayın.</p>
 
             <div class="row">
 
@@ -182,7 +183,7 @@
 <!--                    <a href="#" class="image left"><img src="images/pics04.jpg" alt=""></a>-->
 <!--                    <h3>Etiam posuere augue</h3>-->
 <!--                    <p>Donec nonummy magna quis risus eleifend. </p>-->
-<!--                    <a href="#" class="button">Ətraflı</a>-->
+<!--                    <a href="#" class="button">More</a>-->
 <!--                </div>-->
 <!--            </section>-->
 <!--            <section class="4u">-->
@@ -190,7 +191,7 @@
 <!--                    <a href="#" class="image left"><img src="images/pics05.jpg" alt=""></a>-->
 <!--                    <h3>Etiam posuere augue</h3>-->
 <!--                    <p>Donec nonummy magna quis risus eleifend. </p>-->
-<!--                    <a href="#" class="button">Ətraflı</a>-->
+<!--                    <a href="#" class="button">More</a>-->
 <!--                </div>-->
 <!--            </section>-->
 <!--            <section class="4u">-->
@@ -198,7 +199,7 @@
 <!--                    <a href="#" class="image left"><img src="images/pics06.jpg" alt=""></a>-->
 <!--                    <h3>Etiam posuere augue</h3>-->
 <!--                    <p>Donec nonummy magna quis risus eleifend. </p>-->
-<!--                    <a href="#" class="button">Ətraflı</a>-->
+<!--                    <a href="#" class="button">More</a>-->
 <!--                </div>-->
 <!--            </section>-->
 <!--        </div>-->

@@ -37,8 +37,8 @@
 
 			<nav id="nav">
 				<ul>
-					<li class="active"><a href="/profile">Bloqlarım</a></li>
-					<li><a href="/addBlog">Yeni bloq yaz</a></li>
+					<li class="active"><a href="/profile">My blogs</a></li>
+					<li><a href="/addBlog">New blog</a></li>
 					<li sec:authorize="isAuthenticated()">
 						<div class="btn-group">
 							<button type="button" class="btn btn-success"><i class="fa fa-user"
@@ -49,16 +49,17 @@
 								<span class="sr-only">Toggle Dropdown</span>
 							</button>
 							<div class="dropdown-menu">
-								<img src="css/images/img01.jpg" alt="image" style="border-radius: 30px;height: 60px;width: 60px;margin-left: 20px;">
+								<img src="css/images/img01.jpg" alt="image"
+									 style="border-radius: 30px;height: 60px;width: 60px;margin-left: 20px;">
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="/profile">Bloqlarım</a>
-								<a class="dropdown-item" href="/addBlog">Yeni Bloq</a>
+								<a class="dropdown-item" href="/profile">My blogs</a>
+								<a class="dropdown-item" href="/addBlog">New blog</a>
 								<div class="dropdown-divider"></div>
 								<!--                            <a class="dropdown-item" href="#">Çıxış etmək</a>-->
 								<form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post"
 									  sec:authorize="isAuthenticated()">
 									<input type="hidden"/>
-									<button type="submit" class="btn btn-outline-danger dropdown-item">Hesabdan çıx</button>
+									<button class="btn btn-outline-danger dropdown-item" type="submit">Log out</button>
 								</form>
 								<a class="dropdown-item"></a>
 							</div>

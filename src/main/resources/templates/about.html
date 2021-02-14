@@ -35,20 +35,20 @@
 
         <nav id="nav">
             <ul>
-                <li><a href="/">Ana Səhifə</a></li>
-                <li class="active"><a href="/about">Haqqımızda</a></li>
-                <li><a href="/contact">Əlaqə</a></li>
-<!--                <li>-->
-<!--                    <form class="form-inline my-2 my-lg-0">-->
-<!--                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
-<!--                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-<!--                    </form>-->
-<!--                </li>-->
+                <li><a href="/">Home</a></li>
+                <li class="active"><a href="/about">About us</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <!--                <li>-->
+                <!--                    <form class="form-inline my-2 my-lg-0">-->
+                <!--                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+                <!--                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+                <!--                    </form>-->
+                <!--                </li>-->
                 <li sec:authorize="!isAuthenticated()">
                     <a style="color: #6f2cff;" href="/register">Register</a>
                 </li>
                 <li sec:authorize="!isAuthenticated()">
-                    <a style="color: #6f2cff" href="/login">Daxil ol</a>
+                    <a href="/login" style="color: #6f2cff">Login</a>
                 </li>
                 <li>
                     &nbsp;
@@ -68,14 +68,14 @@
                             <img alt="image" src="css/images/img01.jpg"
                                  style="border-radius: 30px;height: 60px;width: 60px;margin-left: 20px;">
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/profile">Bloqlarım</a>
-                            <a class="dropdown-item" href="/addBlog">Yeni Bloq</a>
+                            <a class="dropdown-item" href="/profile">My blogs</a>
+                            <a class="dropdown-item" href="/addBlog">New blog</a>
                             <div class="dropdown-divider"></div>
                             <!--                            <a class="dropdown-item" href="#">Çıxış etmək</a>-->
                             <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post"
                                   sec:authorize="isAuthenticated()">
                                 <input type="hidden"/>
-                                <button type="submit" class="btn btn-outline-danger dropdown-item">Hesabdan çıx</button>
+                                <button class="btn btn-outline-danger dropdown-item" type="submit">Log out</button>
                             </form>
                             <a class="dropdown-item"></a>
                         </div>
@@ -152,7 +152,7 @@
                     <a href="#" class="image left"><img src="images/pics04.jpg" alt=""></a>
                     <h3>Etiam posuere augue</h3>
                     <p>Donec nonummy magna quis risus eleifend. </p>
-                    <a href="#" class="button">Ətraflı</a>
+                    <a class="button" href="#">More</a>
                 </div>
             </section>
             <section class="4u">
@@ -160,7 +160,7 @@
                     <a href="#" class="image left"><img src="images/pics05.jpg" alt=""></a>
                     <h3>Etiam posuere augue</h3>
                     <p>Donec nonummy magna quis risus eleifend. </p>
-                    <a href="#" class="button">Ətraflı</a>
+                    <a class="button" href="#">More</a>
                 </div>
             </section>
             <section class="4u">
@@ -168,7 +168,7 @@
                     <a href="#" class="image left"><img src="images/pics06.jpg" alt=""></a>
                     <h3>Etiam posuere augue</h3>
                     <p>Donec nonummy magna quis risus eleifend. </p>
-                    <a href="#" class="button">Ətraflı</a>
+                    <a class="button" href="#">More</a>
                 </div>
             </section>
         </div>

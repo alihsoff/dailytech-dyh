@@ -35,9 +35,9 @@
 
         <nav id="nav">
             <ul>
-                <li><a href="/">Ana Səhifə</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="/about">Haqqımızda</a></li>
-                <li class="active"><a href="/contact">Əlaqə</a></li>
+                <li class="active"><a href="/contact">Contact</a></li>
                 <!--                <li>-->
                 <!--                    <form class="form-inline my-2 my-lg-0">-->
                 <!--                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
@@ -45,10 +45,10 @@
                 <!--                    </form>-->
                 <!--                </li>-->
                 <li sec:authorize="!isAuthenticated()">
-                    <a style="color: #6f2cff;" href="/register">Hesab Yarat</a>
+                    <a href="/register" style="color: #6f2cff;">Register</a>
                 </li>
                 <li sec:authorize="!isAuthenticated()">
-                    <a style="color: #6f2cff" href="/login">Daxil ol</a>
+                    <a href="/login" style="color: #6f2cff">Login</a>
                 </li>
                 <li>
                     &nbsp;
@@ -65,13 +65,13 @@
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Bloqlarım</a>
-                            <a class="dropdown-item" href="#">Yeni Bloq</a>
+                            <a class="dropdown-item" href="#">My blogs</a>
+                            <a class="dropdown-item" href="#">New blog</a>
                             <div class="dropdown-divider"></div>
                             <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post"
                                   sec:authorize="isAuthenticated()">
                                 <input type="hidden"/>
-                                <button type="submit" class="btn btn-outline-danger dropdown-item">Hesabdan çıx</button>
+                                <button class="btn btn-outline-danger dropdown-item" type="submit">Log out</button>
                             </form>
                             <a class="dropdown-item"></a>
                         </div>
