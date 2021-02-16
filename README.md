@@ -1,4 +1,10 @@
 # DailyTech
+
+In this application people can create user account , write posts edit, delete, search them, also you can upload images. Or can contact us with email address(SMTP).\
+
+This is live demo:\
+https://dailytech.herokuapp.com/
+
 This project was prepared for graduating from DYH - IT Academy which was organized by govrnment.
 
 ## Technology stack
@@ -6,13 +12,13 @@ This project was prepared for graduating from DYH - IT Academy which was organiz
 ### Back-end
 Java\
 SpringBoot\
-Spring MVC\
+Spring MVC
 
 ### Storage
-Amazon S3 Bucket\
+Amazon S3 Bucket
 
 ### DataBase
-MySQL\
+MySQL
 
 ### Front-end
 Thymeleaf\
