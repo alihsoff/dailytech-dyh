@@ -1,6 +1,6 @@
 # DailyTech
 
-In this application people can create user account , write posts edit, delete, search them, also you can upload images. Or can contact us with email address(SMTP).\
+In this application people can create user account , write posts edit, delete, search them, also you can upload images. Or can contact us with email address(SMTP).
 
 This is live demo:\
 https://dailytech.herokuapp.com/
