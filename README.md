@@ -2,7 +2,7 @@
 
 In this application people can create user account , write posts edit, delete, search them, also you can upload images. Or can contact us with email address(SMTP).
 
-This is live demo:\
+This is live demo(it may take a long time):\
 https://dailytech.herokuapp.com/
 
 This project was prepared for graduating from DYH - IT Academy which was organized by govrnment.
