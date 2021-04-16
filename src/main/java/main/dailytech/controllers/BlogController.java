@@ -5,6 +5,7 @@ import main.dailytech.services.AmazonS3ClientServiceImpl;
 import main.dailytech.services.BlogService;
 import main.dailytech.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
@@ -48,9 +49,10 @@ public class BlogController {
     }
 
     @GetMapping("/addBlog")
-    public String blogForm(String email , Model model , HttpSession httpSession) {
+    public String blogForm(String email, Model model, HttpSession httpSession, Authentication authentication) {
 
         httpSession.setAttribute("email", email);
+        System.out.println("Username:" + ((User) authentication.getPrincipal()).getUsername());
         System.out.println(email);
         model.addAttribute("blog", new Blog());
 
